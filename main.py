@@ -11,9 +11,9 @@ bot = telegram.Bot(token="5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE")
 
 
 # client = pymongo.MongoClient("mongodb+srv://pugalkmc4:pugalsaran143@cluster0.61hbh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
-MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGODB_URI = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
-client = MongoClient(MONGODB_URL)
+client = pymongo.MongoClient(MONGODB_URI)
 
 mydb = client["botdbs"]
 admin = client["admin"]
