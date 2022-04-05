@@ -3,7 +3,7 @@ import pymongo
 from datetime import datetime
 import random
 
-client = pymongo.MongoClient("mongodb+srv://pugalkmc4:pugalsaran143@cluster0.61hbh.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 mydb = client["botdbs"]
 
 
