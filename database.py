@@ -3,9 +3,9 @@ import pymongo
 from datetime import datetime
 import random
 
-MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGODB_URI = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
-client = pymongo.MongoClient(MONGODB_URL)
+client = pymongo.MongoClient(MONGODB_URI)
 
 mydb = client["botdbs"]
 
