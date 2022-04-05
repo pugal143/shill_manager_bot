@@ -9,7 +9,7 @@ bot = telegram.Bot(token="5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE")
 # API_KEY = "5299420575:AAHDNH7-5Q6LhCqgQ_ZBwz8XSY2oFBz6dyM"
 
 
-client = pymongo.MongoClient()
+client = pymongo.MongoClient("mongodb://localhost:27017")
 mydb = client["botdbs"]
 admin = client["admin"]
 
