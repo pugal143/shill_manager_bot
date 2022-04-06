@@ -7,7 +7,7 @@ commands_list = ["hol_user_list", "hol_user_remove", "remove_admin", "add_admin"
                  "commands_list", "del_event", "set_new_event", "set_new_form", "add_qn", "hol_user_add",
                  "request_question", "permission_list", "announcement_user", "give_all_questions"]
 
-MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/botdbs?retryWrites=true&w=majority"
 
 # MONGODB_URI = os.environ["mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
 
