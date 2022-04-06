@@ -128,7 +128,7 @@ def error(update, context):
 
 
 def main():
-    updater = Updater("5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE", use_context=True)
+    updater = Updater("5255258937:AAHm1mOMKghVn8JA_55D7wbF0vrwGldtdCg", use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("tele_group", tele_group))
