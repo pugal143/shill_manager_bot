@@ -3,11 +3,12 @@ import pymongo
 from datetime import datetime
 import random
 
-MONGODB_URI = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
-client = pymongo.MongoClient(MONGODB_URI)
+# MONGODB_URI = os.environ["mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
 
-mydb = client["botdbs"]
+client = MongoClient(MONGODB_URL)
+mydb = client.get_default_database()
 
 
 def question_ask(update, username):
