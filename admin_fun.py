@@ -69,11 +69,14 @@ def admin_mod(update, text, bot, telegram):
         dict_add(update, text_qn)
     elif "hol_user_remove " in text:
         hol_remove = text.replace("hol_user_remove ", "")
+        hol_remove = hol_remove.replace("@", '')
         qn_userremove_col = mydb["qn_permission"]
-        counter = qn_userremove_col.find({"username": text})
-        if len(counter) > 0:
-            qn_userremove_col.delete_one({"username": text})
-            sender("Permission removed for user {0}".format(hol_remove))
+        counter = qn_userremove_col.find({})
+        for i in counter:
+            if hol_remove == i["username"]:
+                qn_userremove_col.delete_one({"username": text})
+                sender("Permission removed for user @{0}".format(hol_remove))
+                break
         else:
             sender("No user found named as {0}".format(hol_remove))
     elif "hol_user_add " in text:
