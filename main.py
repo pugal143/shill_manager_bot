@@ -5,7 +5,7 @@ from telegram.ext import *
 import scratch as s
 from telegram import KeyboardButton, ReplyKeyboardMarkup
 
-bot = telegram.Bot(token="5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE")
+bot = telegram.Bot(token="5255258937:AAHm1mOMKghVn8JA_55D7wbF0vrwGldtdCg")
 
 # API_KEY = "5299420575:AAHDNH7-5Q6LhCqgQ_ZBwz8XSY2oFBz6dyM"
 
