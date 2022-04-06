@@ -7,7 +7,7 @@ MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/botdbs
 
 # MONGODB_URI = os.environ["mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"]
 
-client = MongoClient(MONGODB_URL)
+client = pymongo.MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
