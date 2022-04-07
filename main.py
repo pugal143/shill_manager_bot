@@ -22,7 +22,7 @@ def start(update, context):
     sender = update.message.reply_text
     chat_id = update.message.chat_id
     username = update.message.chat.username
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
