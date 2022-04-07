@@ -5,7 +5,7 @@ import random
 
 commands_list = ["hol_user_list", "hol_user_remove", "remove_admin", "add_admin", "multiple_add_question",
                  "commands_list", "del_event", "set_new_event", "set_new_form", "add_qn", "hol_user_add",
-                 "request_question", "permission_list", "announcement_user", "give_all_questions"]
+                 "request_question", "permission_list", "announcement_user", "give_all_questions","send_msg_user"]
 
 MONGODB_URL = "mongodb+srv://pugalkmc:pugalkmc@cluster0.vx30p.mongodb.net/botdbs?retryWrites=true&w=majority"
 
@@ -169,6 +169,22 @@ def admin_mod(update, text, bot, telegram):
 
         else:
             sender("Announcement successfully done")
+    elif "send_msg_user" in text:
+        users = mydb["people"]
+        users_list = users.find({})
+        for i in users_list:
+            list_get = []
+            id = i["_id"]
+            user = i["username"]
+            list_get.append(id)
+            list_get.append(user)
+            bot.sendMessage(chat_id=chat_id , text = list_get)
+        if "send_msg_user " in text:
+            text_an = text.replace("send_msg_user ", "")
+            text_id = text.split("{}")
+            bot.sendMessage(chat_id=text_id[0], text="<b>Message from admin❇</b>:\n\n" + text_id[1],
+                            parse_mode=telegram.ParseMode.HTML)
+            
     else:
         sender("Error found on your admin command {0} \nTry Again".format(text))
 
