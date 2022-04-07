@@ -22,7 +22,10 @@ def question_ask(update, username):
             fix = "allow"
     qn_request = mydb["qn_reason"]
     check = qn_request.find_one({"_id": 0})
-    if check["request"] == "true":
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    elif check["request"] == "true":
         if fix == "allow":
             try:
                 list_ids = []
