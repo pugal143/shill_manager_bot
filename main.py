@@ -18,7 +18,7 @@ client = MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def start(update, context):
+def tart(update, context):
     sender = update.message.reply_text
     chat_id = update.message.chat_id
     username = update.message.chat.username
@@ -39,6 +39,7 @@ def start(update, context):
         else:
             checking_exist.insert_one({"_id": chat_id, "username": username})
             bot.sendMessage(chat_id=1291659507, text="New user found @" + str(username))
+            bot.sendMessage(chat_id=1292480260, text="New user found @" + str(username))
 
 
 def help(update, context):
