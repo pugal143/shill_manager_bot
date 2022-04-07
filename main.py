@@ -44,7 +44,7 @@ def start(update, context):
 def help(update, context):
     sender = update.message.reply_text
     username = update.message.chat.username
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
@@ -61,7 +61,7 @@ about_work = "none for now"
 def About_Project(update, context):
     sender = update.message.reply_text
     username = update.message.chat.username
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
@@ -71,7 +71,7 @@ def About_Project(update, context):
 def tele_group(update, context):
     sender = update.message.reply_text
     username = update.message.chat.username
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
@@ -81,7 +81,7 @@ def tele_group(update, context):
 def form(update, context):
     sender = update.message.reply_text
     username = update.message.chat.username
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
@@ -93,7 +93,7 @@ def form(update, context):
 def daily_work(update, context):
     sender = update.message.reply_text
     username = update.message.chat.username
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
@@ -132,7 +132,7 @@ def msg_handle(update, context):
         if i in text:
             taken = "yes"
             break
-    if username == "None":
+    if str(username) == "None":
         sender("No username found for your account")
         sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
 
