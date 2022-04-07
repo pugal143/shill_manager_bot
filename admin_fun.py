@@ -170,18 +170,19 @@ def admin_mod(update, text, bot, telegram):
         else:
             sender("Announcement successfully done")
     elif "send_msg_user" in text:
-        users = mydb["people"]
-        users_list = users.find({})
-        for i in users_list:
-            list_get = []
-            id = i["_id"]
-            user = i["username"]
-            list_get.append(id)
-            list_get.append(user)
-            bot.sendMessage(chat_id=chat_id , text = list_get)
+        if "send_msg_user" == text:
+            users = mydb["people"]
+            users_list = users.find({})
+            for i in users_list:
+                list_get = []
+                id = i["_id"]
+                user = i["username"]
+                list_get.append(id)
+                list_get.append(user)
+                bot.sendMessage(chat_id=chat_id , text = list_get)
         if "send_msg_user " in text:
             text_an = text.replace("send_msg_user ", "")
-            text_id = text.split("{}")
+            text_id = text_an.split("{}")
             bot.sendMessage(chat_id=text_id[0], text="<b>Message from admin❇</b>:\n\n" + text_id[1],
                             parse_mode=telegram.ParseMode.HTML)
             
