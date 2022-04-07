@@ -18,53 +18,81 @@ client = MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def start(update, context):
+def tart(update, context):
     chat_id = update.message.chat_id
     username = update.message.chat.username
-    checking_exist = mydb["people"]
-
-    update.message.reply_text("Please click this /help to continue chat")
-    reply_keyboard = [['Question', 'Form Link', 'Active events']]
-    update.message.reply_text("Use below buttons for quick access",
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    else:
+        checking_exist = mydb["people"]
+        update.message.reply_text("Please click this /help to continue chat")
+        reply_keyboard = [['Question', 'Form Link', 'Active events']]
+        update.message.reply_text("Use below buttons for quick access",
                               reply_markup=ReplyKeyboardMarkup(reply_keyboard, resize_keyboard=True,
                                                                one_time_keyboard=True))
 
-    for i in checking_exist.find({}):
-        if username == i["username"]:
-            break
-    else:
-        checking_exist.insert_one({"_id": chat_id, "username": username})
-        bot.sendMessage(chat_id=1291659507, text="New user found @" + str(username))
+        for i in checking_exist.find({}):
+            if username == i["username"]:
+                break
+        else:
+            checking_exist.insert_one({"_id": chat_id, "username": username})
+            bot.sendMessage(chat_id=1291659507, text="New user found @" + str(username))
 
 
 def help(update, context):
-    update.message.reply_text("""Available Commands :-
-    /about_project_work - Full details about our work
-    /tele_group - HOL Telegram group URL
-    /daily_form_link - Daily Task form updated URL
-    /active_events - Daily Task form updated URL""")
+    username = update.message.chat.username
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    else:
+        update.message.reply_text("""Available Commands :-
+        /about_project_work - Full details about our work
+        /tele_group - HOL Telegram group URL
+        /daily_form_link - Daily Task form updated URL
+        /active_events - Daily Task form updated URL""")
 
 
 about_work = "none for now"
 
 
 def About_Project(update, context):
-    update.message.reply_text(about_work)
+    username = update.message.chat.username
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    else:
+        update.message.reply_text(about_work)
 
 
 def tele_group(update, context):
-    update.message.reply_text("Telegram group URL:\nhttps://t.me/HeroesoftheLandGroup")
+    username = update.message.chat.username
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    else:
+        update.message.reply_text("Telegram group URL:\nhttps://t.me/HeroesoftheLandGroup")
 
 
 def form(update, context):
-    getform_link = mydb["formlink"]
-    get = getform_link.find_one({"_id": 0}, {"_id": 0, "link": 1})
-    update.message.reply_text(get["link"])
+    username = update.message.chat.username
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    else:
+        getform_link = mydb["formlink"]
+        get = getform_link.find_one({"_id": 0}, {"_id": 0, "link": 1})
+        update.message.reply_text(get["link"])
 
 
 def daily_work(update, context):
-    from database import event_logic
-    event_logic(update)
+    username = update.message.chat.username
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+    else:
+        from database import event_logic
+        event_logic(update)
 
 
 def admin_commands():
@@ -98,7 +126,11 @@ def msg_handle(update, context):
         if i in text:
             taken = "yes"
             break
-    if "question" == text_low:
+    if username == "None":
+        sender("No username found for your account")
+        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+
+    elif "question" == text_low:
         from database import question_ask
         question_ask(update, username)
 
