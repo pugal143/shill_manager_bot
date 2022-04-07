@@ -18,7 +18,8 @@ client = MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def start(update, context):
+def tart(update, context):
+    sender = update.message.reply_text
     chat_id = update.message.chat_id
     username = update.message.chat.username
     if username == "None":
@@ -41,6 +42,7 @@ def start(update, context):
 
 
 def help(update, context):
+    sender = update.message.reply_text
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
@@ -57,6 +59,7 @@ about_work = "none for now"
 
 
 def About_Project(update, context):
+    sender = update.message.reply_text
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
@@ -66,6 +69,7 @@ def About_Project(update, context):
 
 
 def tele_group(update, context):
+    sender = update.message.reply_text
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
@@ -75,6 +79,7 @@ def tele_group(update, context):
 
 
 def form(update, context):
+    sender = update.message.reply_text
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
@@ -86,6 +91,7 @@ def form(update, context):
 
 
 def daily_work(update, context):
+    sender = update.message.reply_text
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
