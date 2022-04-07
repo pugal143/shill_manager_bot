@@ -113,7 +113,7 @@ def admin_commands():
 
 commands_list = ["hol_user_list", "hol_user_remove", "remove_admin", "add_admin", "multiple_add_question",
                  "commands_list", "del_event", "set_new_event", "set_new_form", "add_qn", "hol_user_add",
-                 "request_question", "permission_list", "announcement_user", "give_all_questions"]
+                 "request_question", "permission_list", "announcement_user", "give_all_questions","send_msg_user"]
 
 admin_list = ["PugalKMC", "SaranKMC"]
 
