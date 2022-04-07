@@ -74,7 +74,7 @@ def admin_mod(update, text, bot, telegram):
         counter = qn_userremove_col.find({})
         for i in counter:
             if hol_remove == i["username"]:
-                qn_userremove_col.delete_one({"username": text})
+                qn_userremove_col.delete_one({"username": hol_remove})
                 sender("Permission removed for user @{0}".format(hol_remove))
                 break
         else:
@@ -136,6 +136,7 @@ def admin_mod(update, text, bot, telegram):
     elif "remove_admin " in text:
         admin_col = mydb["admins"]
         text_username = text.replace("remove_admin ", '')
+        text_username = text_username.replace("@", '')
         for i in admin_col.find({}):
             if i["username"] == text_username:
                 admin_col.delete_one({"_id": i["_id"]})
