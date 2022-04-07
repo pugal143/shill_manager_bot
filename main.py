@@ -18,12 +18,12 @@ client = MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def tart(update, context):
+def start(update, context):
     chat_id = update.message.chat_id
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
         checking_exist = mydb["people"]
         update.message.reply_text("Please click this /help to continue chat")
@@ -44,7 +44,7 @@ def help(update, context):
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
         update.message.reply_text("""Available Commands :-
         /about_project_work - Full details about our work
@@ -60,7 +60,7 @@ def About_Project(update, context):
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
         update.message.reply_text(about_work)
 
@@ -69,7 +69,7 @@ def tele_group(update, context):
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
         update.message.reply_text("Telegram group URL:\nhttps://t.me/HeroesoftheLandGroup")
 
@@ -78,7 +78,7 @@ def form(update, context):
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
         getform_link = mydb["formlink"]
         get = getform_link.find_one({"_id": 0}, {"_id": 0, "link": 1})
@@ -89,7 +89,7 @@ def daily_work(update, context):
     username = update.message.chat.username
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
     else:
         from database import event_logic
         event_logic(update)
@@ -128,7 +128,7 @@ def msg_handle(update, context):
             break
     if username == "None":
         sender("No username found for your account")
-        sender("Please set username for your telegram\n1)Go settings account settings\n2)Click username\n3)Set unique and simplified username")
+        sender("Please set username for your telegram\n1)Go telegram account settings\n2)Click username\n3)Set unique and simplified username")
 
     elif "question" == text_low:
         from database import question_ask
