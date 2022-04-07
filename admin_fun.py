@@ -185,7 +185,7 @@ def admin_mod(update, text, bot, telegram):
             text_id = text_an.split("{}")
             bot.sendMessage(chat_id=text_id[0], text="<b>Message from admin❇</b>:\n\n" + text_id[1],
                             parse_mode=telegram.ParseMode.HTML)
-            sender("Message sended successfully")
+            sender("Message sended successfully🥳")
             
     else:
         sender("Error found on your admin command {0} \nTry Again".format(text))
