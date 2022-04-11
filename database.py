@@ -1,5 +1,5 @@
 
-iport pymongo
+import pymongo
 
 from datetime import datetime
 import random
