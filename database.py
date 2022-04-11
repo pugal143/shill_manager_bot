@@ -158,7 +158,7 @@ def trigger(update,bot):
             bot.sendMessage(chat_id=i["_id"], text="Task Remainder⏰:\nYou completed only 3 task\nDo remaining 2 more task for today")
         elif len(i["link"]) == 4:
             bot.sendMessage(chat_id=i["_id"], text="Task Remainder⏰:\nYou completed only 4 task\nDo one more task for today")
-        elif len(i["link]) > 4:
+        elif len(i["link"]) > 4:
             continue
         else:
             bot.sendMessage(chat_id=i["_id"], text = "Task Remainder⏰:\nYou are looks inactive today\nDo total of 5 task for today")
