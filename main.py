@@ -22,7 +22,7 @@ client = MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def start(update , context):
+def sart(update , context):
     sender = update.message.reply_text
     chat_id = update.message.chat_id
     username = update.message.chat.username
