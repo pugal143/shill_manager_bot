@@ -1,4 +1,7 @@
 # 5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE
+
+# kmc bot
+# 5255258937:AAHm1mOMKghVn8JA_55D7wbF0vrwGldtdCg
 from datetime import datetime , timedelta , timezone
 from pytz import timezone
 from collections import OrderedDict
@@ -9,7 +12,7 @@ import scratch as s
 from telegram import KeyboardButton , ReplyKeyboardMarkup
 
 
-bot = telegram.Bot(token="5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE")
+bot = telegram.Bot(token="5255258937:AAHm1mOMKghVn8JA_55D7wbF0vrwGldtdCg")
 
 # API_KEY = "5299420575:AAHDNH7-5Q6LhCqgQ_ZBwz8XSY2oFBz6dyM"
 
@@ -208,7 +211,7 @@ def error(update, context):
 
 
 def main():
-    updater = Updater("5123712096:AAFoWsAeO_sJyrsl0upMa-LUCeHE-k8AWYE", use_context=True)
+    updater = Updater("5255258937:AAHm1mOMKghVn8JA_55D7wbF0vrwGldtdCg", use_context=True)
     dp = updater.dispatcher
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("tele_group", tele_group))
