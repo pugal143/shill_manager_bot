@@ -1,5 +1,5 @@
 
-import pymongo
+mport pymongo
 
 from datetime import datetime
 import random
@@ -16,7 +16,7 @@ def question_ask(update, username):
     sender = update.message.reply_text
     fix = check_per(username)
     qn_request = mydb["qn_reason"]
-    question = mydb["question"]
+    question = mydb["questions"]
     check = qn_request.find_one({"_id": 0})
     if check["request"] == "true":
         if fix == "allow":
@@ -26,7 +26,7 @@ def question_ask(update, username):
                     list_ids.append(i["_id"])
                 rand = random.choice(list_ids)
                 qn_get_unformat = question.find_one({"_id": rand})
-                qn_format = qn_get_unformat["questions"]
+                qn_format = qn_get_unformat["question"]
                 qn_repeat = qn_get_unformat["repeat"]
                 qn_time = datetime.now()
                 qn_repeat -= 1
