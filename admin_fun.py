@@ -15,7 +15,7 @@ client = pymongo.MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def dmin_mod(update, text, bot, telegram):
+def admin_mod(update, text, bot, telegram):
     username = update.message.chat.username
     chat_id = update.message.chat_id
     sender = update.message.reply_text
