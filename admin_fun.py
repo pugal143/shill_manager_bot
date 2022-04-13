@@ -15,7 +15,7 @@ client = pymongo.MongoClient(MONGODB_URL)
 mydb = client.get_default_database()
 
 
-def admin_mod(update, text, bot, telegram):
+def dmin_mod(update, text, bot, telegram):
     username = update.message.chat.username
     chat_id = update.message.chat_id
     sender = update.message.reply_text
@@ -87,14 +87,14 @@ def admin_mod(update, text, bot, telegram):
         text_user = text.replace("hol_user_add ", '')
         qn_useradd_col = mydb["qn_permission"]
         check = qn_useradd_col.find({})
-        text_user = text_user.replace("@", '')
+        text_re = text_user.replace("@", '')
         for i in check:
-            if text_user == i["username"]:
+            if text_re == i["username"]:
                 sender("User already exist")
                 break
         else:
-            qn_useradd_col.insert_one({"username": text_user})
-            sender("Qn permission given to user {0}".format(text_user))
+            qn_useradd_col.insert_one({"username": text_re})
+            sender("Qn permission given to user @{0}".format(text_re))
     elif "hol_user_list" in text:
         qn_useradd_col = mydb["qn_permission"]
         qn_per = []
