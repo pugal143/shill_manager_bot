@@ -87,9 +87,10 @@ def admin_mod(update, text, bot, telegram):
         text_user = text.replace("hol_user_add ", '')
         qn_useradd_col = mydb["qn_permission"]
         check = qn_useradd_col.find({})
-        text_re = text_user.replace("@", '')
+        if "@" in text_user:
+            text_user = text_user.replace("@", '')
         for i in check:
-            if text_re == i["username"]:
+            if text_user == i["username"]:
                 sender("User already exist")
                 break
         else:
