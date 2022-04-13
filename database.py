@@ -160,9 +160,7 @@ def trigger(update,bot):
     ind_time = datetime.datetime.now(timezone("Asia/Kolkata")).strftime('%d')
     check_active = mydb["task_store"+ind_time]
     for i in check_active.find({}):
-        if len(i["link"]) == 0:
-            bot.sendMessage(chat_id=i["_id"], text = "Task Remainder⏰:\nYou are looks inactive today\nDo total of 5 task for today")
-        elif len(i["link"]) == 1:
+        if len(i["link"]) == 1:
             bot.sendMessage(chat_id=i["_id"], text="Task Remainder⏰:\nYou completed only 1 task\nDo remaining 4 task for today")
         elif len(i["link"]) == 2:
             bot.sendMessage(chat_id=i["_id"], text="Task Remainder⏰:\nYou completed only 2 task\nDo remaining 3 task for today")
@@ -170,5 +168,7 @@ def trigger(update,bot):
             bot.sendMessage(chat_id=i["_id"], text="Task Remainder⏰:\nYou completed only 3 task\nDo remaining 2 more task for today")
         elif len(i["link"]) == 4:
             bot.sendMessage(chat_id=i["_id"], text="Task Remainder⏰:\nYou completed only 4 task\nDo one more task for today")
+        else:
+            bot.sendMessage(chat_id=i["_id"], text = "Task Remainder⏰:\nYou are looks inactive today\nDo total of 5 task for today")
     else:
         update.message.reply_text("Triggered all task worker...Done")
